@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+    overflow: hidden;
+}
+
+/* Background Glow */
+body::before,
+body::after{
+    content:"";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+}
+body::before{
+    background: #38bdf8;
+    top: -100px;
+    left: -100px;
+}
+body::after{
+   background: #8b5cf6;
+    bottom: -100px;
+    right: -100px; 
+}
+
+/* Calculator */
+.calculator{
+    width: 350px;
+    padding: 25px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Display */
+#display{
+    width: 100%;
+    height: 90px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    text-align: right;
+    font-size: 2.2rem;
+    font-weight: 500;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+button{
+    height: 70px;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    transition: 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1)
+}
+
+/* Button Hover */
+button:hover{
+    transform: translateY(-3px) scale(1.03);
+    background: #38bdf8;
+    box-shadow: 0 0 15px #38bdf8, 0 0 40px rgba(56, 189, 248, 0.5);
+}
+
+/* Click Animation */
+button:active{
+    transform: scale(0.95);
+}
+
+/* Operator Buttons */
+.operator{
+    background: #8b5cf6;
+}
+
+.operator:hover{
+    background: #8b5cf6;
+    box-shadow: 0 0 15px #8b5cf6, 0 0 40px rgba(139, 92, 246, 0.5);
+}
+
+/* Equal Button */
+.equal{
+    background: #22c55e;
+}
+
+.equal:hover{
+    background: #22c55e;
+    box-shadow:0 0 15px #22c55e, 0 0 40px rgba(34, 197, 94, 0.5);
+}
+
+/* Zero Button */
+.zero{
+    grid-column: span 2;
+}
+
+/* Responsive Design */
+@media (max-width: 400px){
+    .calculator{
+        width: 95%;
+        padding: 20px;
+    }
+    
+    button{
+        height: 65px;
+    }
+}
